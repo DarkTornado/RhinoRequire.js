@@ -6,7 +6,7 @@
 * Execute require.js via .evaluateString(); method in org.mozilla.javascript.Context before execute your source.
 * 다른 소스를 실행하기 전에 org.mozilla.javascript.Context 클래스에 있는 .evaluateString(); 메소드 등을 통해 require.js 실행.
 
-# Example
+# Example ~~귀찮아서 아직 안올림~~
 * This example is Android app example.
 * First, input require.js in asset directory. Then, read require.js and execute before execute your source.
 * for convenience, I put Acvity's Context as globar variable named ctx.
