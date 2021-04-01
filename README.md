@@ -14,7 +14,7 @@ rhino.setLanguageVersion(org.mozilla.javascript.Context.VERSION_ES6);
 Scriptable scope = new ImporterTopLevel(rhino);  //or Scriptable scope = rhino.initStandardObjects();
 rhino.evaluateString(scope, "require.js's source", "JavaScript", 1, null);  //Execute require.js before executing your source.
 rhino.evaluateString(scope, "Your JS Source", "JavaScript", 1, null);
-This Context is org.mozilla.javascript.Context.exit();
+org.mozilla.javascript.Context.exit();
 ```
 # License
 * [MIT License](https://github.com/DarkTornado/RhinoRequire.js/blob/master/LICENSE)
