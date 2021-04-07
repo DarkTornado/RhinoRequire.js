@@ -1,4 +1,5 @@
 # RhinoRequire.js
+© 2020 Dark Tornado, All rights reserved.
 * require(); function made with Javascript for [Rhino JS Engine](https://github.com/mozilla/rhino).
 * 자바스크립트로 구현된 [라이노 엔진](https://github.com/mozilla/rhino)용 require(); 함수에요.
 
