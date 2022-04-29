@@ -28,23 +28,26 @@ SOFTWARE.
 */
 
 function require(moduleName) {
-    var module = {};
+    let module = {};
     module.exports = {};
-    var exports = module.exports;
+    let exports = module.exports;
 
-    var sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
-    var path = sdcard + "/Modules/" + moduleName;
-    var file = new java.io.File(path);
+    let sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
+    let path = sdcard + "/Modules/" + moduleName;
+    let file = new java.io.File(path);
     if (!file.exists()) {
         path = sdcard + "/Modules/" + moduleName + ".js";
         file = new java.io.File(path);
     }
-    if (!file.exists()) return "";
-    var fis = new java.io.FileInputStream(file);
-    var isr = new java.io.InputStreamReader(fis);
-    var br = new java.io.BufferedReader(isr);
-    var str = br.readLine();
-    var line = "";
+    if (file.isDirectory()) {
+        file = new java.io.File(path + '/index.js')
+    }
+    if (!file.exists()) throw new Error("Cannot find module '" + moduleName + "'");
+    let fis = new java.io.FileInputStream(file);
+    let isr = new java.io.InputStreamReader(fis);
+    let br = new java.io.BufferedReader(isr);
+    let str = br.readLine();
+    let line = "";
     while ((line = br.readLine()) != null) {
         str += "\n" + line;
     }
