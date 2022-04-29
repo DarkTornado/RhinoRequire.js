@@ -34,8 +34,12 @@ function require(moduleName) {
 
     let sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
     let path = sdcard + "/Modules/" + moduleName;
+    let isRelative = moduleName.startsWith('.');
+    if (isRelative) {
+        path = new java.io.File(moduleName + '.js').getAbsolutePath()
+    }
     let file = new java.io.File(path);
-    if (!file.exists()) {
+    if (!file.exists() && !isRelative) {
         path = sdcard + "/Modules/" + moduleName + ".js";
         file = new java.io.File(path);
     }
